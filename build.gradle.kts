@@ -32,7 +32,10 @@ dependencies {
   implementation("io.vertx:vertx-web-client")
   implementation("io.vertx:vertx-web")
   implementation("io.vertx:vertx-web-openapi")
+  implementation("io.vertx:vertx-hazelcast:3.9.0")
+  implementation("io.vertx:vertx-pg-client:4.2.4")
   testImplementation("io.vertx:vertx-junit5")
+
   testImplementation("org.junit.jupiter:junit-jupiter:$junitJupiterVersion")
 }
 
