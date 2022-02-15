@@ -34,6 +34,7 @@ dependencies {
   implementation("io.vertx:vertx-web-openapi")
   implementation("io.vertx:vertx-hazelcast:3.9.0")
   implementation("io.vertx:vertx-pg-client:4.2.4")
+  runtimeOnly("io.netty:netty-resolver-dns-native-macos:XXX:osx-x86_64")
   testImplementation("io.vertx:vertx-junit5")
 
   testImplementation("org.junit.jupiter:junit-jupiter:$junitJupiterVersion")

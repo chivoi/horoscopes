@@ -14,6 +14,8 @@ import io.vertx.pgclient.PgConnectOptions;
 import io.vertx.pgclient.PgPool;
 import io.vertx.sqlclient.PoolOptions;
 import io.vertx.sqlclient.Row;
+import io.vertx.sqlclient.RowSet;
+import io.vertx.sqlclient.Tuple;
 
 public class MainVerticle extends AbstractVerticle {
 
@@ -25,7 +27,7 @@ public class MainVerticle extends AbstractVerticle {
   public void start(Promise<Void> startPromise) {
     pgPool = PgPool.pool(vertx, new PgConnectOptions()
       .setHost("127.0.0.1")
-      .setUser("postgres")
+      .setUser("ana.lastoviria")
       .setDatabase("postgres")
       .setPassword("vertx-in-action"), new PoolOptions());
 
@@ -48,7 +50,7 @@ public class MainVerticle extends AbstractVerticle {
 
   private void getAllData(RoutingContext context){
     System.out.println("Requesting all data from " + context.request().remoteAddress());
-    String query = "select * from temperature_records";
+    String query = "select * from postgres2";
     pgPool.preparedQuery(query)
       .execute()
       .onSuccess(rows ->{
@@ -77,8 +79,37 @@ public class MainVerticle extends AbstractVerticle {
 
   }
 
-  private void recordTemperature(Message<JsonObject> message){
+//  private void recordTemperature(RoutingContext context, Message<JsonObject> message){
+//    System.out.println("+++RECORDING TEMP+++");
+//    System.out.println(message.body().toString());
+//    String query = String.format("insert into postgres2(uuid, value) values(%s, %s)", message.body().getString("uuid"), message.body().getDouble("value") );
+//    pgPool.preparedQuery(query)
+//      .execute()
+//      .onSuccess(x ->{
+//        System.out.println("-----THIS IS X--------");
+//        System.out.println(x);
+//        context.response()
+//          .putHeader("Content-Type", "application/json")
+//          .end();
+//      })
+//      .onFailure(failure ->{
+//        System.out.println("Recording failed" + failure);
+//        context.fail(500);
+//      });
+//  }
 
+  private void recordTemperature(Message<JsonObject> message){
+    System.out.println("+++RECORDING TEMP+++");
+    System.out.println(message.body().toString());
+    pgPool.preparedQuery("insert into postgres2(uuid, value) values($1, $2)")
+      .execute(Tuple.of(message.body().getString("uuid"), message.body().getDouble("temperature")), ar -> {
+        if (ar.succeeded()) {
+          RowSet<Row> rows = ar.result();
+          System.out.println(rows.value().toString());
+        } else {
+          System.out.println("Failure: " + ar.cause().getMessage());
+        }
+    });
   }
 
 
@@ -86,6 +117,7 @@ public class MainVerticle extends AbstractVerticle {
     Vertx.clusteredVertx(new VertxOptions())
       .onSuccess(vertx -> {
         vertx.deployVerticle(new MainVerticle());
+        vertx.deployVerticle(new SensorVerticle());
         System.out.println("Running");
       })
       .onFailure(failure -> {

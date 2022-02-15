@@ -32,6 +32,7 @@ public class SensorVerticle extends AbstractVerticle {
       .listen(httpPort)
       .onSuccess(ok -> {
         System.out.println("http server running: http://127.0.0.1" + httpPort);
+
         startPromise.complete();
       })
       .onFailure(startPromise::fail);
