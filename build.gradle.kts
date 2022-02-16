@@ -34,9 +34,11 @@ dependencies {
   implementation("io.vertx:vertx-web-openapi")
   implementation("io.vertx:vertx-hazelcast:3.9.0")
   implementation("io.vertx:vertx-pg-client:4.2.4")
+  implementation("org.apache.logging.log4j:log4j-core:2.17.1")
+  implementation("org.apache.logging.log4j:log4j-api:2.17.1")
+  implementation("org.jboss.resteasy:resteasy-vertx:6.0.0.Final")
   runtimeOnly("io.netty:netty-resolver-dns-native-macos:XXX:osx-x86_64")
   testImplementation("io.vertx:vertx-junit5")
-
   testImplementation("org.junit.jupiter:junit-jupiter:$junitJupiterVersion")
 }
 
@@ -61,5 +63,11 @@ tasks.withType<Test> {
 }
 
 tasks.withType<JavaExec> {
-  args = listOf("run", mainVerticleName, "--redeploy=$watchForChange", "--launcher-class=$launcherClassName", "--on-redeploy=$doOnChange")
+  args = listOf(
+    "run",
+    mainVerticleName,
+    "--redeploy=$watchForChange",
+    "--launcher-class=$launcherClassName",
+    "--on-redeploy=$doOnChange"
+  )
 }
