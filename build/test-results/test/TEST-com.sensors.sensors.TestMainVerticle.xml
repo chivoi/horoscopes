@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.sensors.sensors.TestMainVerticle" tests="1" skipped="0" failures="0" errors="0" timestamp="2022-02-16T05:05:37" hostname="8919-agoh" time="0.525">
+<testsuite name="com.sensors.sensors.TestMainVerticle" tests="1" skipped="0" failures="0" errors="0" timestamp="2022-02-17T03:17:31" hostname="C02GL091MD6V" time="0.39">
   <properties/>
-  <testcase name="verticle_deployed(Vertx, VertxTestContext)" classname="com.sensors.sensors.TestMainVerticle" time="0.525"/>
+  <testcase name="verticle_deployed(Vertx, VertxTestContext)" classname="com.sensors.sensors.TestMainVerticle" time="0.39"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>
