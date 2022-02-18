@@ -41,9 +41,3 @@ public class SensorVerticle extends AbstractVerticle {
 // Tests with junit
 
 // SensorVerticle - gets data from external API and publishes it to event bus
-
-// Functionality:
-// - Get data from external API [on start, get 5 lots of data] - SensorVerticle
-// - Save that data to a database - DatabaseVerticle
-// - Create endpoints that serve database data - ServerVerticle
-

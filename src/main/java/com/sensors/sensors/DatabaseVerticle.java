@@ -41,7 +41,7 @@ public class DatabaseVerticle extends AbstractVerticle {
 
     Router router = Router.router(vertx);
 
-    router.get("/temperature").handler(this::getAllData);
+    router.get("/temperature").handler(this::getTemperatureData);
     router.get("/horoscope").handler(this::getHoroscopeData);
     router.get("/one-horoscope").handler(this::getHoroscopeData);
 
@@ -84,7 +84,7 @@ public class DatabaseVerticle extends AbstractVerticle {
       .execute(Tuple.of(date, compatability, color, luckynumber, description), ar -> {
         if (ar.succeeded()) {
           RowSet<Row> rows = ar.result();
-          System.out.println(rows.value().toString());
+          System.out.println("Horoscope recorded!");
         } else {
           System.out.println("Failure: " + ar.cause().getMessage());
         }
@@ -122,7 +122,7 @@ public class DatabaseVerticle extends AbstractVerticle {
       });
   }
 
-  public void getAllData(RoutingContext context) {
+  public void getTemperatureData(RoutingContext context) {
     String query = "select * from postgres2";
     pgPool.preparedQuery(query)
       .execute()
