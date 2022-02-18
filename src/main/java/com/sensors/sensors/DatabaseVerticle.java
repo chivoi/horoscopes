@@ -13,10 +13,13 @@ import io.vertx.sqlclient.PoolOptions;
 import io.vertx.sqlclient.Row;
 import io.vertx.sqlclient.RowSet;
 import io.vertx.sqlclient.Tuple;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import java.sql.Timestamp;
 
 public class DatabaseVerticle extends AbstractVerticle {
+  private static final Logger logger = LogManager.getLogger(DatabaseVerticle.class);
   private PgPool pgPool;
   private static final int httpPort = Integer.parseInt(System.getenv().getOrDefault("HTTP_PORT", "9999"));
 
@@ -38,6 +41,7 @@ public class DatabaseVerticle extends AbstractVerticle {
     Router router = Router.router(vertx);
 
     router.get("/all").handler(this::getAllData);
+    router.get("/horoscope").handler(this::getHoroscopeData);
 
     vertx.createHttpServer().requestHandler(router).listen(httpPort).onSuccess(ok -> {
       System.out.println("http server running at port: " + httpPort);
@@ -48,7 +52,7 @@ public class DatabaseVerticle extends AbstractVerticle {
   }
 
   private void recordTemperature(Message<JsonObject> message) {
-    System.out.println("+++RECORDING TEMP+++");
+    logger.info("+++RECORDING TEMP+++");
 
     String uuid = message.body().getString("uuid");
     double temperature = message.body().getDouble("temperature");
@@ -66,7 +70,8 @@ public class DatabaseVerticle extends AbstractVerticle {
   }
 
   private void recordHoroscope(Message<JsonObject> message) {
-    System.out.println("+++RECORDING HOROSCOPE+++");
+
+    logger.info("+++RECORDING HOROSCOPE+++");
 
     String date = message.body().getString("current_date");
     String compatability  = message.body().getString("compatibility");
@@ -86,8 +91,30 @@ public class DatabaseVerticle extends AbstractVerticle {
 
   }
 
+  public void getHoroscopeData(RoutingContext context){
+    pgPool.preparedQuery("select * from horoscopes")
+      .execute()
+      .onSuccess(rows -> {
+        JsonArray array = new JsonArray();
+        for (Row row : rows) {
+          array.add(new JsonObject()
+            .put("date", row.getString("date"))
+            .put("compatibility", row.getString("compatability"))
+            .put("color", row.getString("color"))
+            .put("luckynumber", row.getString("luckynumber"))
+            .put("description", row.getString("description")));
+        }
+        context.response()
+          .putHeader("Content-Type", "application/json")
+          .end(new JsonObject().put("data", array).encode());
+      })
+      .onFailure(failure -> {
+        System.out.println("Woops: " + failure);
+        context.fail(500);
+      });
+  }
+
   public void getAllData(RoutingContext context) {
-    System.out.println("Requesting all data from " + context.request().remoteAddress());
     String query = "select * from postgres2";
     pgPool.preparedQuery(query)
       .execute()

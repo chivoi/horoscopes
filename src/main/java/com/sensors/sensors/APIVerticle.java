@@ -13,7 +13,6 @@ import java.util.UUID;
 
 public class APIVerticle extends AbstractVerticle {
 
-  private final String uuid = UUID.randomUUID().toString();
   private static final Logger logger = LogManager.getLogger(APIVerticle.class);
 
   public static void main(String[] args) {
