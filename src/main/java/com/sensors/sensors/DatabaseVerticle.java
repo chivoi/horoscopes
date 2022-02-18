@@ -17,6 +17,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import java.sql.Timestamp;
+import java.util.Objects;
 
 public class DatabaseVerticle extends AbstractVerticle {
   private static final Logger logger = LogManager.getLogger(DatabaseVerticle.class);
@@ -40,8 +41,9 @@ public class DatabaseVerticle extends AbstractVerticle {
 
     Router router = Router.router(vertx);
 
-    router.get("/all").handler(this::getAllData);
+    router.get("/temperature").handler(this::getAllData);
     router.get("/horoscope").handler(this::getHoroscopeData);
+    router.get("/one-horoscope").handler(this::getHoroscopeData);
 
     vertx.createHttpServer().requestHandler(router).listen(httpPort).onSuccess(ok -> {
       System.out.println("http server running at port: " + httpPort);
@@ -70,7 +72,6 @@ public class DatabaseVerticle extends AbstractVerticle {
   }
 
   private void recordHoroscope(Message<JsonObject> message) {
-
     logger.info("+++RECORDING HOROSCOPE+++");
 
     String date = message.body().getString("current_date");
@@ -92,7 +93,14 @@ public class DatabaseVerticle extends AbstractVerticle {
   }
 
   public void getHoroscopeData(RoutingContext context){
-    pgPool.preparedQuery("select * from horoscopes")
+    String query = null;
+    if(Objects.equals(context.normalizedPath(), "/horoscope")){
+      query = "select * from horoscopes";
+    }else if(Objects.equals(context.normalizedPath(), "/one-horoscope")){
+      query = "select * from horoscopes order by id desc limit 1";
+    }
+
+    pgPool.preparedQuery(query)
       .execute()
       .onSuccess(rows -> {
         JsonArray array = new JsonArray();

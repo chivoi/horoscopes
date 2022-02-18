@@ -9,8 +9,6 @@ import io.vertx.ext.web.codec.BodyCodec;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import java.util.UUID;
-
 public class APIVerticle extends AbstractVerticle {
 
   private static final Logger logger = LogManager.getLogger(APIVerticle.class);
