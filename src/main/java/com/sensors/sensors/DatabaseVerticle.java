@@ -64,9 +64,9 @@ public class DatabaseVerticle extends AbstractVerticle {
       .execute(Tuple.of(uuid, temperature, tstamp.toLocalDateTime()), ar -> {
         if (ar.succeeded()) {
           RowSet<Row> rows = ar.result();
-          System.out.println(rows.value().toString());
+          logger.info(rows.value().toString());
         } else {
-          System.out.println("Failure: " + ar.cause().getMessage());
+          logger.info("Failure: " + ar.cause().getMessage());
         }
       });
   }
@@ -84,9 +84,9 @@ public class DatabaseVerticle extends AbstractVerticle {
       .execute(Tuple.of(date, compatability, color, luckynumber, description), ar -> {
         if (ar.succeeded()) {
           RowSet<Row> rows = ar.result();
-          System.out.println("Horoscope recorded!");
+          logger.info("Horoscope recorded!");
         } else {
-          System.out.println("Failure: " + ar.cause().getMessage());
+          logger.info("Failure: " + ar.cause().getMessage());
         }
       });
 
@@ -117,7 +117,7 @@ public class DatabaseVerticle extends AbstractVerticle {
           .end(new JsonObject().put("data", array).encode());
       })
       .onFailure(failure -> {
-        System.out.println("Woops: " + failure);
+        logger.info("Whoops: " + failure);
         context.fail(500);
       });
   }
@@ -139,7 +139,7 @@ public class DatabaseVerticle extends AbstractVerticle {
           .end(new JsonObject().put("data", array).encode());
       })
       .onFailure(failure -> {
-        System.out.println("Woops: " + failure);
+        logger.info("Whoops: " + failure);
         context.fail(500);
       });
   }

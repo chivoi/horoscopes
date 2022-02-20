@@ -8,10 +8,13 @@ import io.vertx.ext.web.codec.BodyCodec;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
-import java.util.Optional;
 import java.util.Random;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class APIVerticle extends AbstractVerticle {
 
@@ -35,11 +38,11 @@ public class APIVerticle extends AbstractVerticle {
       .onSuccess(response -> {
         vertx.eventBus().publish("horoscope.updates", response.body());
       })
-      .onFailure(err -> System.out.println("Something went wrong " + err.getMessage()));
+      .onFailure(err -> logger.info("Something went wrong " + err.getMessage()));
   }
 
   private String getRandomSign(){
-    ArrayList <String> signs = new ArrayList<>(List.of(
+    List <String> signs = Arrays.stream(new String [] {
       "aries",
       "taurus",
       "gemini",
@@ -52,7 +55,8 @@ public class APIVerticle extends AbstractVerticle {
       "capricorn",
       "aquarius",
       "pisces"
-    ));
+  }).collect(Collectors.toList());
+
     Random rand = new Random();
     return signs.get(rand.nextInt(signs.size()));
   }

@@ -30,14 +30,8 @@ public class SensorVerticle extends AbstractVerticle {
   private void updateTemperature(Long id) {
 //    TODO: Get data from external endpoint
     temperature = temperature + (random.nextGaussian() / 2.0d);
-    logger.info("The temperature updated: ", temperature);
+    logger.info("The temperature updated: " + temperature);
 
     vertx.eventBus().publish("temperature.updates", getPayload());
   }
 }
-
-// Create endpoints via RestEasy
-// Get data from other, external endpoints via vertx httpclient, use futures
-// Tests with junit
-
-// SensorVerticle - gets data from external API and publishes it to event bus
