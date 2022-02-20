@@ -10,7 +10,7 @@ import java.util.UUID;
 
 public class SensorVerticle extends AbstractVerticle {
 
-  private static Logger logger = LogManager.getLogger(SensorVerticle.class);
+  private static final Logger logger = LogManager.getLogger(SensorVerticle.class);
   private final String uuid = UUID.randomUUID().toString();
   private final Random random = new Random();
   private double temperature = 21.0;
