@@ -17,7 +17,7 @@ public class MainVerticle extends AbstractVerticle {
 //      vertx.deployVerticle(new SensorVerticle());
       logger.info("Main app is running!");
     }).onFailure(failure -> {
-      System.out.println("Main app is not running. Error: " + failure);
+      logger.error("Main app is not running. Error: " + failure);
     });
   }
 }

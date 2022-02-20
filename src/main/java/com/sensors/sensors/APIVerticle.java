@@ -34,7 +34,7 @@ public class APIVerticle extends AbstractVerticle {
       .onSuccess(response -> {
         vertx.eventBus().publish("horoscope.updates", response.body());
       })
-      .onFailure(err -> logger.info("Something went wrong " + err.getMessage()));
+      .onFailure(err -> logger.error("Something went wrong " + err.getMessage()));
   }
 
   private String getRandomSign(){

@@ -46,7 +46,7 @@ public class DatabaseVerticle extends AbstractVerticle {
     router.get("/one-horoscope").handler(this::getHoroscopeData);
 
     vertx.createHttpServer().requestHandler(router).listen(httpPort).onSuccess(ok -> {
-      System.out.println("http server running at port: " + httpPort);
+      logger.info("http server running at port: " + httpPort);
       startPromise.complete();
     }).onFailure(fail -> {
       startPromise.fail("No server because " + fail);
@@ -66,7 +66,7 @@ public class DatabaseVerticle extends AbstractVerticle {
           RowSet<Row> rows = ar.result();
           logger.info(rows.value().toString());
         } else {
-          logger.info("Failure: " + ar.cause().getMessage());
+          logger.error("Failure: " + ar.cause().getMessage());
         }
       });
   }
