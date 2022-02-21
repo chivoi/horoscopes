@@ -1,33 +1,34 @@
-s[DEBUG] 2022-02-20 19:08:17.338 [Test worker] LoggerFactory - Using io.vertx.core.logging.Log4j2LogDelegateFactory
-t[DEBUG] 2022-02-20 19:08:17.366 [Test worker] InternalLoggerFactory - Using Log4J2 as the default logging framework
-^[DEBUG] 2022-02-20 19:08:17.369 [Test worker] PlatformDependent0 - -Dio.netty.noUnsafe: false
-T[DEBUG] 2022-02-20 19:08:17.370 [Test worker] PlatformDependent0 - Java version: 17
-h[DEBUG] 2022-02-20 19:08:17.370 [Test worker] PlatformDependent0 - sun.misc.Unsafe.theUnsafe: available
-i[DEBUG] 2022-02-20 19:08:17.371 [Test worker] PlatformDependent0 - sun.misc.Unsafe.copyMemory: available
-f[DEBUG] 2022-02-20 19:08:17.371 [Test worker] PlatformDependent0 - java.nio.Buffer.address: available
-ì[DEBUG] 2022-02-20 19:08:17.372 [Test worker] PlatformDependent0 - direct buffer constructor: unavailable: Reflective setAccessible(true) disabled
-l[DEBUG] 2022-02-20 19:08:17.372 [Test worker] PlatformDependent0 - java.nio.Bits.unaligned: available, true
-’[DEBUG] 2022-02-20 19:08:17.373 [Test worker] PlatformDependent0 - jdk.internal.misc.Unsafe.allocateUninitializedArray(int): unavailable: class io.netty.util.internal.PlatformDependent0$6 cannot access class jdk.internal.misc.Unsafe (in module java.base) because module java.base does not export jdk.internal.misc to unnamed module @d35dea7
-|[DEBUG] 2022-02-20 19:08:17.374 [Test worker] PlatformDependent0 - java.nio.DirectByteBuffer.<init>(long, int): unavailable
-][DEBUG] 2022-02-20 19:08:17.374 [Test worker] PlatformDependent - sun.misc.Unsafe: available
-k[DEBUG] 2022-02-20 19:08:17.375 [Test worker] PlatformDependent - maxDirectMemory: 536870912 bytes (maybe)
-ó[DEBUG] 2022-02-20 19:08:17.375 [Test worker] PlatformDependent - -Dio.netty.tmpdir: /var/folders/2j/ccv5yd8s2vj7f25855d4z6kw0000gq/T (java.io.tmpdir)
-o[DEBUG] 2022-02-20 19:08:17.375 [Test worker] PlatformDependent - -Dio.netty.bitMode: 64 (sun.arch.data.model)
-R[DEBUG] 2022-02-20 19:08:17.375 [Test worker] PlatformDependent - Platform: MacOS
-g[DEBUG] 2022-02-20 19:08:17.376 [Test worker] PlatformDependent - -Dio.netty.maxDirectMemory: -1 bytes
-w[DEBUG] 2022-02-20 19:08:17.376 [Test worker] PlatformDependent - -Dio.netty.uninitializedArrayAllocationThreshold: -1
-f[DEBUG] 2022-02-20 19:08:17.377 [Test worker] CleanerJava9 - java.nio.ByteBuffer.cleaner(): available
-c[DEBUG] 2022-02-20 19:08:17.378 [Test worker] PlatformDependent - -Dio.netty.noPreferDirect: false
-l[DEBUG] 2022-02-20 19:08:17.388 [Test worker] ResourceLeakDetector - -Dio.netty.leakDetection.level: simple
-o[DEBUG] 2022-02-20 19:08:17.388 [Test worker] ResourceLeakDetector - -Dio.netty.leakDetection.targetRecords: 4
-j[DEBUG] 2022-02-20 19:08:17.402 [Test worker] MultithreadEventLoopGroup - -Dio.netty.eventLoopThreads: 24
-Å[DEBUG] 2022-02-20 19:08:17.417 [Test worker] InternalThreadLocalMap - -Dio.netty.threadLocalMap.stringBuilder.initialSize: 1024
-}[DEBUG] 2022-02-20 19:08:17.418 [Test worker] InternalThreadLocalMap - -Dio.netty.threadLocalMap.stringBuilder.maxSize: 4096
-d[DEBUG] 2022-02-20 19:08:17.423 [Test worker] NioEventLoop - -Dio.netty.noKeySetOptimization: false
-j[DEBUG] 2022-02-20 19:08:17.423 [Test worker] NioEventLoop - -Dio.netty.selectorAutoRebuildThreshold: 512
-t[DEBUG] 2022-02-20 19:08:17.428 [Test worker] PlatformDependent - org.jctools-core.MpscChunkedArrayQueue: available
-ü[DEBUG] 2022-02-20 19:08:17.444 [Test worker] DefaultDnsServerAddressStreamProvider - Default DNS servers: [/127.0.0.1:53] (sun.net.dns.ResolverConfiguration)
-Z[DEBUG] 2022-02-20 19:08:17.448 [Test worker] NetUtil - -Djava.net.preferIPv4Stack: false
-^[DEBUG] 2022-02-20 19:08:17.448 [Test worker] NetUtil - -Djava.net.preferIPv6Addresses: false
-z[DEBUG] 2022-02-20 19:08:17.454 [Test worker] NetUtilInitializations - Loopback interface: lo0 (lo0, 0:0:0:0:0:0:0:1%lo0)
-ê[DEBUG] 2022-02-20 19:08:17.454 [Test worker] NetUtil - Failed to get SOMAXCONN from sysctl and file /proc/sys/net/core/somaxconn. Default: 128
+û[[37m2022-02-21 13:19:18,065 [Test worker] DEBUG] 2022-02-21 13:19:18.065 [Test worker] LoggerFactory - Using io.vertx.core.logging.Log4j2LogDelegateFactory
+[mü[[37m2022-02-21 13:19:18,144 [Test worker] DEBUG] 2022-02-21 13:19:18.144 [Test worker] InternalLoggerFactory - Using Log4J2 as the default logging framework
+[mâ[[37m2022-02-21 13:19:18,149 [Test worker] DEBUG] 2022-02-21 13:19:18.149 [Test worker] PlatformDependent0 - -Dio.netty.noUnsafe: false
+[m[[37m2022-02-21 13:19:18,149 [Test worker] DEBUG] 2022-02-21 13:19:18.149 [Test worker] PlatformDependent0 - Java version: 17
+[mì[[37m2022-02-21 13:19:18,150 [Test worker] DEBUG] 2022-02-21 13:19:18.150 [Test worker] PlatformDependent0 - sun.misc.Unsafe.theUnsafe: available
+[mî[[37m2022-02-21 13:19:18,150 [Test worker] DEBUG] 2022-02-21 13:19:18.150 [Test worker] PlatformDependent0 - sun.misc.Unsafe.copyMemory: available
+[më[[37m2022-02-21 13:19:18,151 [Test worker] DEBUG] 2022-02-21 13:19:18.151 [Test worker] PlatformDependent0 - java.nio.Buffer.address: available
+[mæ[[37m2022-02-21 13:19:18,151 [Test worker] DEBUG] 2022-02-21 13:19:18.151 [Test worker] PlatformDependent0 - direct buffer constructor: unavailable: Reflective setAccessible(true) disabled
+[mó[[37m2022-02-21 13:19:18,152 [Test worker] DEBUG] 2022-02-21 13:19:18.152 [Test worker] PlatformDependent0 - java.nio.Bits.unaligned: available, true
+[mÄ[[37m2022-02-21 13:19:18,153 [Test worker] DEBUG] 2022-02-21 13:19:18.153 [Test worker] PlatformDependent0 - jdk.internal.misc.Unsafe.allocateUninitializedArray(int): unavailable: class io.netty.util.internal.PlatformDependent0$6 cannot access class jdk.internal.misc.Unsafe (in module java.base) because module java.base does not export jdk.internal.misc to unnamed module @ed7f8b4
+[mß[[37m2022-02-21 13:19:18,153 [Test worker] DEBUG] 2022-02-21 13:19:18.153 [Test worker] PlatformDependent0 - java.nio.DirectByteBuffer.<init>(long, int): unavailable
+[mà[[37m2022-02-21 13:19:18,154 [Test worker] DEBUG] 2022-02-21 13:19:18.154 [Test worker] PlatformDependent - sun.misc.Unsafe: available
+[mñ[[37m2022-02-21 13:19:18,154 [Test worker] DEBUG] 2022-02-21 13:19:18.154 [Test worker] PlatformDependent - maxDirectMemory: 536870912 bytes (maybe)
+[m¬[[37m2022-02-21 13:19:18,154 [Test worker] DEBUG] 2022-02-21 13:19:18.154 [Test worker] PlatformDependent - -Dio.netty.tmpdir: /var/folders/_q/31l9jkbd1v95cxnqqs8blftc0000gp/T (java.io.tmpdir)
+[mö[[37m2022-02-21 13:19:18,155 [Test worker] DEBUG] 2022-02-21 13:19:18.155 [Test worker] PlatformDependent - -Dio.netty.bitMode: 64 (sun.arch.data.model)
+[m}[[37m2022-02-21 13:19:18,155 [Test worker] DEBUG] 2022-02-21 13:19:18.155 [Test worker] PlatformDependent - Platform: MacOS
+[mí[[37m2022-02-21 13:19:18,156 [Test worker] DEBUG] 2022-02-21 13:19:18.156 [Test worker] PlatformDependent - -Dio.netty.maxDirectMemory: -1 bytes
+[m¢[[37m2022-02-21 13:19:18,156 [Test worker] DEBUG] 2022-02-21 13:19:18.156 [Test worker] PlatformDependent - -Dio.netty.uninitializedArrayAllocationThreshold: -1
+[më[[37m2022-02-21 13:19:18,157 [Test worker] DEBUG] 2022-02-21 13:19:18.157 [Test worker] CleanerJava9 - java.nio.ByteBuffer.cleaner(): available
+[mé[[37m2022-02-21 13:19:18,157 [Test worker] DEBUG] 2022-02-21 13:19:18.157 [Test worker] PlatformDependent - -Dio.netty.noPreferDirect: false
+[mó[[37m2022-02-21 13:19:18,168 [Test worker] DEBUG] 2022-02-21 13:19:18.168 [Test worker] ResourceLeakDetector - -Dio.netty.leakDetection.level: simple
+[mö[[37m2022-02-21 13:19:18,168 [Test worker] DEBUG] 2022-02-21 13:19:18.168 [Test worker] ResourceLeakDetector - -Dio.netty.leakDetection.targetRecords: 4
+[mï[[37m2022-02-21 13:19:18,184 [Test worker] DEBUG] 2022-02-21 13:19:18.184 [Test worker] MultithreadEventLoopGroup - -Dio.netty.eventLoopThreads: 32
+[m¨[[37m2022-02-21 13:19:18,201 [Test worker] DEBUG] 2022-02-21 13:19:18.201 [Test worker] InternalThreadLocalMap - -Dio.netty.threadLocalMap.stringBuilder.initialSize: 1024
+[m®[[37m2022-02-21 13:19:18,201 [Test worker] DEBUG] 2022-02-21 13:19:18.201 [Test worker] InternalThreadLocalMap - -Dio.netty.threadLocalMap.stringBuilder.maxSize: 4096
+[mè[[37m2022-02-21 13:19:18,209 [Test worker] DEBUG] 2022-02-21 13:19:18.209 [Test worker] NioEventLoop - -Dio.netty.noKeySetOptimization: false
+[mï[[37m2022-02-21 13:19:18,209 [Test worker] DEBUG] 2022-02-21 13:19:18.209 [Test worker] NioEventLoop - -Dio.netty.selectorAutoRebuildThreshold: 512
+[mü[[37m2022-02-21 13:19:18,216 [Test worker] DEBUG] 2022-02-21 13:19:18.216 [Test worker] PlatformDependent - org.jctools-core.MpscChunkedArrayQueue: available
+[m›[[37m2022-02-21 13:19:18,233 [Test worker] DEBUG] 2022-02-21 13:19:18.233 [Test worker] DefaultDnsServerAddressStreamProvider - Default DNS servers: [/10.34.172.6:53, /10.32.172.6:53] (sun.net.dns.ResolverConfiguration)
+[mÖ[[37m2022-02-21 13:19:18,238 [Test worker] DEBUG] 2022-02-21 13:19:18.238 [Test worker] NetUtil - -Djava.net.preferIPv4Stack: false
+[mâ[[37m2022-02-21 13:19:18,239 [Test worker] DEBUG] 2022-02-21 13:19:18.239 [Test worker] NetUtil - -Djava.net.preferIPv6Addresses: false
+[m•[[37m2022-02-21 13:19:18,243 [Test worker] DEBUG] 2022-02-21 13:19:18.243 [Test worker] NetUtilInitializations - Loopback interface: lo0 (lo0, 0:0:0:0:0:0:0:1%lo0)
+[mª[[37m2022-02-21 13:19:18,244 [Test worker] DEBUG] 2022-02-21 13:19:18.244 [Test worker] NetUtil - Failed to get SOMAXCONN from sysctl and file /proc/sys/net/core/somaxconn. Default: 128
+[m

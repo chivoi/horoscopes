@@ -8,13 +8,13 @@ import org.apache.logging.log4j.Logger;
 
 public class MainVerticle extends AbstractVerticle {
 
-  private static final Logger logger = LogManager.getLogger(DatabaseVerticle.class);
+  private static final Logger logger = LogManager.getLogger(MainVerticle.class);
 
   public static void main(String[] args) {
     Vertx.clusteredVertx(new VertxOptions()).onSuccess(vertx -> {
-      vertx.deployVerticle(new DatabaseVerticle());
       vertx.deployVerticle(new APIVerticle());
-//      vertx.deployVerticle(new SensorVerticle());
+//      vertx.deployVerticle(new RestEasyVerticle());
+      vertx.deployVerticle(new DatabaseVerticle());
       logger.info("Main app is running!");
     }).onFailure(failure -> {
       logger.error("Main app is not running. Error: " + failure);

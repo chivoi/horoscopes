@@ -7,6 +7,7 @@ import io.vertx.ext.web.client.predicate.ResponsePredicate;
 import io.vertx.ext.web.codec.BodyCodec;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+
 import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
@@ -16,14 +17,19 @@ public class APIVerticle extends AbstractVerticle {
 
   private static final Logger logger = LogManager.getLogger(APIVerticle.class);
 
-  public static void main(String[] args) {
-  }
+//  public static void main(String[] args) {
+//  }
 
   @Override
   public void start(Promise<Void> startPromise) {
+    callHoroscopesEndpoint();
+  }
+
+  private void callHoroscopesEndpoint() {
     WebClient client = WebClient.create(vertx);
+
     client
-      .post(443, "aztro.sameerkumar.website","/")
+      .post(443, "aztro.sameerkumar.website", "/")
       .addQueryParam("sign", getRandomSign())
       .addQueryParam("day", "today")
       .ssl(true)
@@ -37,8 +43,8 @@ public class APIVerticle extends AbstractVerticle {
       .onFailure(err -> logger.error("Something went wrong " + err.getMessage()));
   }
 
-  private String getRandomSign(){
-    List <String> signs = Arrays.stream(new String [] {
+  private String getRandomSign() {
+    List<String> signs = Arrays.stream(new String[]{
       "aries",
       "taurus",
       "gemini",
@@ -51,7 +57,7 @@ public class APIVerticle extends AbstractVerticle {
       "capricorn",
       "aquarius",
       "pisces"
-  }).collect(Collectors.toList());
+    }).collect(Collectors.toList());
 
     Random rand = new Random();
     return signs.get(rand.nextInt(signs.size()));

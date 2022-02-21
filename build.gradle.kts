@@ -30,6 +30,7 @@ application {
 dependencies {
   implementation(platform("io.vertx:vertx-stack-depchain:$vertxVersion"))
   implementation("io.vertx:vertx-web-client")
+  implementation("io.vertx:vertx-junit5-web-client:4.0.0-milestone4")
   implementation("io.vertx:vertx-web")
   implementation("io.vertx:vertx-web-openapi")
   implementation("io.vertx:vertx-hazelcast:3.9.0")
@@ -37,9 +38,15 @@ dependencies {
   implementation("org.apache.logging.log4j:log4j-core:2.17.1")
   implementation("org.apache.logging.log4j:log4j-api:2.17.1")
   implementation("org.jboss.resteasy:resteasy-vertx:6.0.0.Final")
+  implementation("junit:junit:4.13.1")
+  implementation("org.jboss.resteasy:resteasy-jaxrs:3.15.3.Final")
+  implementation("com.zandero:rest.vertx:1.0.6.1")
   runtimeOnly("io.netty:netty-resolver-dns-native-macos:XXX:osx-x86_64")
   testImplementation("io.vertx:vertx-junit5")
   testImplementation("org.junit.jupiter:junit-jupiter:$junitJupiterVersion")
+  testImplementation("org.mockito:mockito-core:4.3.1")
+  testImplementation("io.vertx:vertx-unit:4.2.5")
+
 }
 
 java {
