@@ -7,7 +7,7 @@ plugins {
   id("com.github.johnrengelman.shadow") version "7.0.0"
 }
 
-group = "com.sensors"
+group = "com.zendesk"
 version = "1.0.0-SNAPSHOT"
 
 repositories {
@@ -17,7 +17,7 @@ repositories {
 val vertxVersion = "4.2.4"
 val junitJupiterVersion = "5.7.0"
 
-val mainVerticleName = "com.sensors.sensors.MainVerticle"
+val mainVerticleName = "com.zendesk.horoscopes.MainVerticle"
 val launcherClassName = "io.vertx.core.Launcher"
 
 val watchForChange = "src/**/*"

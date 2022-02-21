@@ -1,4 +1,4 @@
-= Sensors
+= Horoscopes
 
 image:https://img.shields.io/badge/vert.x-4.2.4-purple.svg[link="https://vertx.io"]
 
